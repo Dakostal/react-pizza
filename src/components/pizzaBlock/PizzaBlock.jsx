@@ -1,7 +1,9 @@
 
 
 
-export const PizaaBlock = () => {
+export const PizaaBlock = (props) => {
+    console.log(props);
+
     return(
         <div class="pizza-block">
             <img
@@ -9,7 +11,7 @@ export const PizaaBlock = () => {
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
                 alt="Pizza"
             />
-            <h4 class="pizza-block__title">Чизбургер-пицца</h4>
+            <h4 class="pizza-block__title">{props.title}</h4>
             <div class="pizza-block__selector">
                 <ul>
                 <li class="active">тонкое</li>
@@ -22,7 +24,7 @@ export const PizaaBlock = () => {
                 </ul>
             </div>
             <div class="pizza-block__bottom">
-                <div class="pizza-block__price">от 395 ₽</div>
+                <div class="pizza-block__price">от {props.price} ₽</div>
                 <div class="button button--outline button--add">
                 <svg
                     width="12"
