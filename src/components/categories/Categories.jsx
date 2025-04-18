@@ -1,20 +1,21 @@
 import React, { useState } from "react"
 
 const categories = [
-    {id: 1, name: 'Все', active: false},
-    {name: 'Мясные', active: false},
-    {name: 'Вегетарианская', active: false},
-    {name: 'Гриль', active: false},
-    {name: 'Острые', active: false},
-    {name: 'Закрытые', active: false}
+    {name: 'Все'},
+    {name: 'Мясные'},
+    {name: 'Вегетарианская'},
+    {name: 'Гриль'},
+    {name: 'Острые'},
+    {name: 'Закрытые'}
 ]
 
 export const Categories =()=> {
 
-    const[isActive, setIsActive] = useState(false)
+    const[isActive, setIsActive] = useState(0)
 
-    const onClickCategories = () => {
-        setIsActive(isActive === false)
+    const onClickCategories = (index) => {
+        setIsActive(index)
+        console.log(setIsActive);
     }
     return (
         <>
@@ -22,8 +23,8 @@ export const Categories =()=> {
                 <ul>
                     {categories.map((cat, i) => (
                         <li
-                            onClick={onClickCategories}
-                            className={isActive ?  'active' : cat.active}
+                            onClick={()=>onClickCategories(i)}
+                            className={isActive === i ? 'active' : ''}
                             key={i}
                         >{cat.name}</li>
                     ))}
